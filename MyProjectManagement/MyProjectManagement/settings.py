@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'projects_tool',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +122,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Media files configuration for user-uploaded content.
+MEDIA_URL = '/media/' # This is the public URL for our media files.
+MEDIA_ROOT = BASE_DIR / 'media' # This tells Django to create a folder named "media" in the project's base directory to store uploaded files.
