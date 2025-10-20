@@ -71,3 +71,23 @@ class Label(models.Model):
 
     def __str__(self):
         return self.title
+
+
+
+class List(models.Model):
+    """
+    Represents a list or column on a board (e.g., 'To Do', 'Doing', 'Done').
+    """
+    # Every list must belong to a board, so if a board is deleted, all of its lists are also deleted.
+    board = models.ForeignKey(Board, on_delete=models.CASCADE, related_name='lists')
+    title = models.CharField(max_length=64)
+    position = models.PositiveIntegerField() # Makes sure that it only allows values of 0 or greater.
+
+    # Within any single board, each list must have a unique title. (One "To Do" list in each board)
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['board', 'title'], name='unique_list_title_per_board')
+        ]
+
+    def __str__(self):
+        return self.title
