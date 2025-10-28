@@ -31,12 +31,14 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'data_wizard',
     'itertable',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'projects_tool',
 ]
 
